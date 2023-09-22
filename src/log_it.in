@@ -15,10 +15,7 @@ def log_it(thing, newfile=False):
 
     filename = os.path.expanduser("~/tmp/log")
     if os.path.isdir(os.path.expanduser("~/tmp")):
-        if newfile:
-            thefile = open(filename, 'w')
-        else:
-            thefile = open(filename, 'a')
+        thefile = open(filename, 'w') if newfile else open(filename, 'a')
 
         thefile.write(time.strftime("%d %b %X: " + thing + "\n"))
         thefile.close()
